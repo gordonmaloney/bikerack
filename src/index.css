@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +13,39 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  font-family: 'Passion One', cursive;
+  font-weight: 400;
+  font-size: 6em;
+}
+h2, h3, h4, h5, h6 {
+  font-family: 'Passion One', cursive;
+  font-weight: 400;
+}
+
+#morph {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9
+}
+
+.fadeIn {
+  opacity: 1 !important;
+  transition: 1000
+}
+
+.nonSelectable {
+  -webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+cursor: default;
 }
