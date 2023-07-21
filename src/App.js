@@ -1,16 +1,21 @@
 import React from "react";
-import { Home } from "./pages/Home/Home";
+import Home from "./pages/Home/Home";
 import Landing from "./pages/Landing/Landing";
+import { BikerackFrame } from "./pages/Bikerack/BikerackFrame";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Landing />,
   },
   {
     path: "landing",
-    element: <Landing />,
+    element: <Home />,
+  },
+  {
+    path: "bikerack/:brname",
+    element: <BikerackFrame />,
   },
 ]);
 
