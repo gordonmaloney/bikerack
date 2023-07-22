@@ -38,8 +38,8 @@ const Points = [
   "M -1 600 C 216 600 216 600 216 600 C 479 600 479 600 479 600 C 563 600 563 600 563 600 C 795 600 795 600 795 600 L 800 600 L 800 600 L 0 600 L 0 600 ",
 ];
 
-
 const LoggedIn = () => {
+  const navigate = useNavigate();
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -76,10 +76,11 @@ const LoggedIn = () => {
   return (
     <div
       style={{
+        backgroundColor: 'black',
         width: "100vw",
         maxWidth: "100vw",
         minHeight: "100vh",
-        overflow: "hidden",
+        overflowX: "hidden",
         opacity: fade ? 0 : 1,
         transition: "1s",
         transitionTimingFunction: "ease-in",
@@ -120,7 +121,7 @@ const LoggedIn = () => {
         </h2>
       </div>
 
-      <div style={{ height: "400px" }} />
+      <div style={{ height: "400px", backgroundColor: 'white' }} />
 
       <div
         style={{
@@ -144,6 +145,8 @@ const LoggedIn = () => {
           <Blob colour={"black"} radius={100} squash={1.1} />
         </div>
 
+
+
         <h2
           style={{
             position: "absolute",
@@ -163,7 +166,7 @@ const LoggedIn = () => {
             justifyContent: "space-around",
             maxWidth: "100vw",
             position: "absolute",
-            marginTop: "-170px",
+            marginTop: "-150px",
           }}
         >
           {Racks.map((rack) => {
