@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import Landing from "./pages/Landing/Landing";
 import { BikerackFrame } from "./pages/Bikerack/BikerackFrame";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Masking } from "./Masking";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <div>
-      <RouterProvider router={router} />
+       <RouterProvider router={router} /> 
     </div>
   );
 };

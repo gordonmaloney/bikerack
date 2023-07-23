@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { createNoise2D } from 'simplex-noise';
 import { spline } from "@georgedoescode/spline";
 
-export const Blob = ({colour, radius, squash}) => {
+export const Blob = ({colour, radius, squash, stroke}) => {
   let noiseStep = 0.0015;
 
   const noise2D = createNoise2D();
@@ -88,7 +88,7 @@ export const Blob = ({colour, radius, squash}) => {
   return (
       <svg viewBox="0 0 200 200" xmlns="<http://www.w3.org/2000/svg>"
       style={{position: "absolute"}}>
-        <path d={pathD} fill={colour}></path>
+        <path d={pathD} fill={colour} stroke={stroke && "black"}></path>
       </svg>
   );
 };
