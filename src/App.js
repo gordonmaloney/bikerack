@@ -4,6 +4,7 @@ import Landing from "./pages/Landing/Landing";
 import { BikerackFrame } from "./pages/Bikerack/BikerackFrame";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Masking } from "./Masking";
+import { RackFrame } from "./pages/Bikerack/Rack/RackFrame";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "bikerack/:brname",
     element: <BikerackFrame />,
+  },
+  {
+    path: "bikerack/:brName/:rackName",
+    element: <RackFrame />,
   },
 ]);
 

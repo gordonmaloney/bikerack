@@ -102,21 +102,22 @@ export const BikerackFrame = () => {
     };
   }, []);
 
-  const [fade, setFade] = useState(0);
+  const [fade, setFade] = useState(true);
+
   useEffect(() => {
-    setFade(1);
+    setFade(false);
   }, []);
 
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div
       style={{
-        overflow: 'hidden',
-        height: '100%',
+        overflow: "hidden",
+        height: "100%",
         minHeight: "100vh",
         backgroundColor: "black",
-        paddingBottom: '450px',
-        opacity: fade,
+        paddingBottom: "450px",
+        opacity: fade ? 0 : 1, 
         color: "white",
         transition: "1s",
       }}
@@ -178,7 +179,7 @@ export const BikerackFrame = () => {
 
           <Grid item>
             <center>
-              <RackBlob newRack />
+              <RackBlob newRack setFade={setFade} />
             </center>
           </Grid>
         </Grid>

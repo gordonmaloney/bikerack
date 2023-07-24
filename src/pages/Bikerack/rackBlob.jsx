@@ -35,9 +35,9 @@ export const RackBlob = ({ name, id, bikes, newRack, setFade }) => {
 
   const openBr = (name) => {
     setPlay(true);
-    setFade(true);
+    //setFade(true);
     setTimeout(() => {
-      navigate("../bikerack/" + name);
+      navigate(`./` + name);
     }, 1000);
   };
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Blob } from "../../components/Blob";
-import { Avatar, AvatarGroup, Button, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import anime from "animejs/lib/anime.es.js";
 import { useNavigate } from "react-router-dom";
 import { BikerackBlob } from "./BikerackBlob";
