@@ -7,6 +7,83 @@ import anime from "animejs/lib/anime.es.js";
 import { Grid } from "@mui/material";
 import { RackBlob } from "./rackBlob";
 
+const Racks = [
+  {
+    rack: "shows",
+    bikes: [
+      "Stranger Things",
+      "The Mandalorian",
+      "Friends",
+      "Black Mirror",
+      "Brooklyn Nine-Nine",
+      "The Crown",
+      "Avatar: The Last Airbender",
+      "The Great British Bake Off",
+      "Money Heist",
+      "The Office (US)",
+    ],
+  },
+  {
+    rack: "Restaurants",
+    bikes: [
+      "The Witchery by the Castle",
+      "Timberyard",
+      "Dishoom Edinburgh",
+      "Ondine",
+    ],
+  },
+  {
+    rack: "recipes",
+    bikes: [
+      "Classic Spaghetti Carbonara",
+      "Thai Green Curry",
+      "Homemade Pizza with Various Toppings",
+      "Lemon Garlic Butter Shrimp",
+      "Chicken Tikka Masala",
+      "Vegetarian Stuffed Bell Peppers",
+      "Chocolate Fondue",
+    ],
+  },
+  {
+    rack: "Games",
+    bikes: [
+      "Super Smash Bros. Ultimate",
+      "Fortnite",
+      "Stardew Valley",
+      "Apex Legends",
+      "Borderlands 3",
+      "Mario Kart 8 Deluxe",
+    ],
+  },
+  {
+    rack: "Books",
+    bikes: [
+      "The Great Gatsby by F. Scott Fitzgerald",
+      "The Hunger Games by Suzanne Collins",
+      "1984 by George Orwell",
+      "To Kill a Mockingbird by Harper Lee",
+      "The Lord of the Rings by J.R.R. Tolkien",
+      "The Da Vinci Code by Dan Brown",
+      "The Alchemist by Paulo Coelho",
+      "Gone Girl by Gillian Flynn",
+      "The Catcher in the Rye by J.D. Salinger",
+    ],
+  },
+  {
+    rack: "Days out",
+    bikes: [
+      "Visit a local museum or art gallery",
+      "Go on a hiking trip in the countryside",
+      "Have a movie marathon with all-time favorite films",
+      "Attend a live concert or music event",
+      "Have a beach day with beach games and a BBQ",
+      "Go on a bike tour exploring the city",
+      "Plan a themed costume party",
+      "Visit an amusement park and ride roller coasters",
+    ],
+  },
+];
+
 export const BikerackFrame = () => {
   const navigate = useNavigate();
   const { brname } = useParams();
@@ -34,8 +111,11 @@ export const BikerackFrame = () => {
   return (
     <div
       style={{
-        height: "100vh",
+        overflow: 'hidden',
+        height: '100%',
+        minHeight: "100vh",
         backgroundColor: "black",
+        paddingBottom: '450px',
         opacity: fade,
         color: "white",
         transition: "1s",
@@ -74,7 +154,6 @@ export const BikerackFrame = () => {
         style={{
           zIndex: 1,
           transitionTimingFunction: "ease",
-          backgroundColor: "red",
           position: "absolute",
           width: windowWidth > 700 ? `${windowWidth - 260}px` : "100%",
           marginTop: "100px",
@@ -86,116 +165,20 @@ export const BikerackFrame = () => {
           style={{
             justifyContent: "space-around",
             width: "100%",
-            position: "absolute",
+            //position: "absolute",
           }}
         >
-          <Grid item>
-            <center>
-              <RackBlob
-                name="shows"
-                bikes={[
-                  "Stranger Things",
-                  "The Mandalorian",
-                  "Friends",
-                  "Black Mirror",
-                  "Brooklyn Nine-Nine",
-                  "The Crown",
-                  "Avatar: The Last Airbender",
-                  "The Great British Bake Off",
-                  "Money Heist",
-                  "The Office (US)",
-                ]}
-                id={1}
-              />
-            </center>
-          </Grid>
+          {Racks.map((rack) => (
+            <Grid item>
+              <center>
+                <RackBlob name={rack.rack} bikes={rack.bikes} id={1} />
+              </center>
+            </Grid>
+          ))}
 
           <Grid item>
             <center>
-              <RackBlob
-                name="Restaurants"
-                bikes={[
-                  "The Witchery by the Castle",
-                  "Timberyard",
-                  "Dishoom Edinburgh",
-                  "Ondine",
-                ]}
-                id={1}
-              />
-            </center>
-          </Grid>
-
-          <Grid item>
-            <center>
-              <RackBlob
-                name="recipes"
-                bikes={[
-                  "Classic Spaghetti Carbonara",
-                  "Thai Green Curry",
-                  "Homemade Pizza with Various Toppings",
-                  "Lemon Garlic Butter Shrimp",
-                  "Chicken Tikka Masala",
-                  "Vegetarian Stuffed Bell Peppers",
-                  "Chocolate Fondue",
-                ]}
-                id={1}
-              />
-            </center>
-          </Grid>
-
-          <Grid item>
-            <center>
-              <RackBlob
-                name="Games"
-                bikes={[
-                  "Super Smash Bros. Ultimate",
-                  "Fortnite",
-                  "Stardew Valley",
-                  "Apex Legends",
-                  "Borderlands 3",
-                  "Mario Kart 8 Deluxe",
-                ]}
-                id={1}
-              />
-            </center>
-          </Grid>
-
-          <Grid item>
-            <center>
-              <RackBlob
-                name="Books"
-                bikes={[
-                  "The Great Gatsby by F. Scott Fitzgerald",
-                  "The Hunger Games by Suzanne Collins",
-                  "1984 by George Orwell",
-                  "To Kill a Mockingbird by Harper Lee",
-                  "The Lord of the Rings by J.R.R. Tolkien",
-                  "The Da Vinci Code by Dan Brown",
-                  "The Alchemist by Paulo Coelho",
-                  "Gone Girl by Gillian Flynn",
-                  "The Catcher in the Rye by J.D. Salinger",
-                ]}
-                id={1}
-              />
-            </center>
-          </Grid>
-
-          <Grid item>
-            <center>
-              <RackBlob
-                name="Days out"
-                bikes={[
-                  "Visit a local museum or art gallery",
-                  "Go on a hiking trip in the countryside",
-                  "Have a movie marathon with all-time favorite films",
-                  "Attend a live concert or music event",
-                  "Have a beach day with beach games and a BBQ",
-                  "Go on a bike tour exploring the city",
-                  "Plan a themed costume party",
-                  "Visit an amusement park and ride roller coasters",
-                ]}
-                id={1}
-              />
+              <RackBlob newRack />
             </center>
           </Grid>
         </Grid>

@@ -4,6 +4,7 @@ import { Avatar, AvatarGroup, Button, Grid } from "@mui/material";
 import anime from "animejs/lib/anime.es.js";
 import { useNavigate } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
+import Animicon from "../../components/Animicon";
 
 const ButtonPoints = [
   "M 389 246 C 419 217 435 231 453 259 C 419 259 442 273 427 291 C 393 284 425 273 409 305 C 379 290 386 280 386 305 C 352 287 386 288 366 285 C 361 264 352 288 381 260 C 355 246 381 232 389 247 Z",
@@ -11,7 +12,7 @@ const ButtonPoints = [
   "M 0 0 C 183 1 358 0 552 0 C 687 0 799 3 799 0 C 800 268 800 321 800 600 C 591 596 501 599 417 600 C 292 595 179 599 0 600 C 4 473 4 443 0 365 C 6 256 -1 183 0 0 Z",
 ];
 
-export const RackBlob = ({ name, id, bikes, setFade }) => {
+export const RackBlob = ({ name, id, bikes, newRack, setFade }) => {
   const navigate = useNavigate();
 
   const [play, setPlay] = useState(false);
@@ -40,6 +41,14 @@ export const RackBlob = ({ name, id, bikes, setFade }) => {
     }, 1000);
   };
 
+  const createNewRack = () => {
+    setPlay(true);
+    setFade(true);
+    setTimeout(() => {
+      navigate("../newRack");
+    }, 1000);
+  };
+
   return (
     <>
       <div
@@ -54,56 +63,70 @@ export const RackBlob = ({ name, id, bikes, setFade }) => {
           height: "200px",
         }}
       >
-        <Blob colour={"white"} radius={90} squash={1.2} />
+        <Blob colour={"white"} radius={90} stroke squash={1.2} />
 
-        <div
-          style={{
-            paddingTop: "30px",
-            color: "black",
-            zIndex: 5,
-            width: "220px",
-            textAlign: "center",
-          }}
-        >
-          <h2 style={{ marginBottom: "-10px" }}>{name}</h2>
-
-          <ul
+        {!newRack ? (
+          <div
             style={{
+              paddingTop: "30px",
               color: "black",
-              textAlign: "left",
-              width: "150px",
-              margin: "15px 0 0 0",
+              zIndex: 5,
+              width: "220px",
+              textAlign: "center",
             }}
           >
-            {bikes.map((bike, index) => {
-              if (index < 3)
-                return (
-                  <li
-                    style={{
-                      listStylePosition: "inside",
-                      whiteSpace: "nowrap",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                    }}
-                  >
-                    {bike}
-                  </li>
-                );
-            })}
-            {bikes.length > 3 && (
-              <li
-                style={{
-                  listStylePosition: "inside",
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                }}
-              >
-                + {bikes.length-3} more
-              </li>
-            )}
-          </ul>
-        </div>
+            <h2 style={{ marginBottom: "-10px" }}>{name}</h2>
+
+            <ul
+              style={{
+                color: "black",
+                textAlign: "left",
+                width: "150px",
+                margin: "15px 0 0 0",
+              }}
+            >
+              {bikes.map((bike, index) => {
+                if (index < 3)
+                  return (
+                    <li
+                      style={{
+                        listStylePosition: "inside",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      {bike}
+                    </li>
+                  );
+              })}
+              {bikes.length > 3 && (
+                <li
+                  style={{
+                    listStylePosition: "inside",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  + {bikes.length - 3} more
+                </li>
+              )}
+            </ul>
+          </div>
+        ) : (
+          <div
+            style={{
+              color: "black",
+              width: "100%",
+              zIndex: 5,
+              filter: "invert(1)",
+              marginTop: "35px",
+            }}
+          >
+            <Animicon icon="PlusIcon" canvas autoplay forceLoop />{" "}
+          </div>
+        )}
       </div>
       <div style={{ position: "absolute" }}>
         <svg

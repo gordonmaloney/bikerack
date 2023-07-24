@@ -89,7 +89,7 @@ export const Menu = ({ setMenuOpen }) => {
           opacity: "1 !important",
           position: "fixed",
           zIndex: 6,
-          transform: "scale(0.25,0.3)",
+          transform: "scale(0.3,0.3)",
           marginLeft: "-50px",
           marginTop: "-50px",
           filter: open ? "invert(1)" : "invert(0)",
@@ -174,128 +174,6 @@ export const Menu = ({ setMenuOpen }) => {
         >
           <div style={{ minHeight: "1200px" }}>
             <Blob colour={"white"} radius={90} squash={1} stroke />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const Menu2 = () => {
-  const [animationRef, setAnimationRef] = useState();
-
-  const navigate = useNavigate();
-
-  const [open, setOpen] = useState(false);
-
-  const GloopPoints = [
-    "M 0 0 C 0 0 300 0 300 0 C 300 44 300 75 300 132 C 300 220 300 129 300 252 C 300 316 300 267 300 305 C 300 328 300 357 300 427 C 300 505 300 413 300 600 L 0 600 Z",
-
-    "M 0 0 C 0 0 85 0 142 0 C 47 44 106 75 135 132 C 187 220 40 129 64 252 C 72 316 180 267 195 305 C 208 328 114 357 82 427 C 46 505 203 413 200 600 L 0 600 Z",
-    "M 0 0 C 0 0 0 0 0 0 C 0 44 0 75 0 132 C 0 220 0 129 0 252 C 0 316 0 267 0 305 C 0 328 0 357 0 427 C 0 505 0 413 0 600 L 0 600 Z",
-  ];
-
-  useEffect(() => {
-    setAnimationRef(
-      anime({
-        targets: ".morph",
-        d: [
-          {
-            value: GloopPoints[1],
-          },
-          {
-            value: GloopPoints[2],
-          },
-        ],
-        easing: "spring",
-        duration: 1000,
-        loop: false,
-        autoplay: false,
-      })
-    );
-  }, []);
-
-  const handleOpen = () => {
-    if (animationRef.reversed) {
-      animationRef.reverse();
-    }
-    animationRef.play();
-
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-
-    animationRef.reverse();
-    animationRef.play();
-  };
-
-  return (
-    <div>
-      <svg
-        id="morph"
-        height="150vh"
-        width="100vw"
-        minHeight="1400px"
-        viewBox="0 0 300 600"
-        preserveAspectRatio="none"
-      >
-        <path class="morph" fill="red" d={GloopPoints[0]} />
-      </svg>
-
-      <div
-        id="menu"
-        style={{
-          zIndex: 4,
-          position: "fixed",
-        }}
-      >
-        <div
-          style={{
-            zIndex: "2",
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            top: 0,
-            color: "black",
-            fontFamily: "'Passion One'",
-          }}
-        >
-          <div style={{ padding: "20px" }}>
-            <h2
-              onClick={() => navigate("../landing")}
-              style={{ margin: 0, marginBottom: "50px", fontSize: "2.5em" }}
-            >
-              back
-            </h2>
-
-            <h2>get suggestion</h2>
-            <h2>manage</h2>
-
-            <h2>make proposal</h2>
-            <h2>new rack</h2>
-
-            <h2>leave</h2>
-
-            <button onClick={() => handleClose()}>testzz</button>
-          </div>
-        </div>
-
-        <div
-          style={{
-            position: "fixed",
-            display: "inline-flex",
-            color: "black",
-            width: "500px",
-            overflow: "hidden",
-            minHeight: "1300px",
-            transform: `translate(-250px,1300px) scale(1, 4)`,
-            padding: "60px 0 50px 0",
-          }}
-        >
-          <div style={{ minHeight: "1300px" }}>
-            <Blob colour={"white"} radius={90} squash={1} />
           </div>
         </div>
       </div>

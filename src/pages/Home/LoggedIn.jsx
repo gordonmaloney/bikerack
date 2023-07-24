@@ -76,7 +76,7 @@ const LoggedIn = () => {
   return (
     <div
       style={{
-        backgroundColor: 'black',
+        backgroundColor: "black",
         width: "100vw",
         maxWidth: "100vw",
         minHeight: "100vh",
@@ -121,7 +121,7 @@ const LoggedIn = () => {
         </h2>
       </div>
 
-      <div style={{ height: "400px", backgroundColor: 'white' }} />
+      <div style={{ height: "400px", backgroundColor: "white" }} />
 
       <div
         style={{
@@ -145,8 +145,6 @@ const LoggedIn = () => {
           <Blob colour={"black"} radius={100} squash={1.1} />
         </div>
 
-
-
         <h2
           style={{
             position: "absolute",
@@ -167,6 +165,7 @@ const LoggedIn = () => {
             maxWidth: "100vw",
             position: "absolute",
             marginTop: "-150px",
+            paddingBottom: '-250px'
           }}
         >
           {Racks.map((rack) => {
@@ -183,6 +182,15 @@ const LoggedIn = () => {
               </Grid>
             );
           })}
+
+          <Grid item>
+            <center>
+              <BikerackBlob
+                createNew
+                setFade={setFade}
+              />
+            </center>
+          </Grid>
         </Grid>
       </div>
     </div>
