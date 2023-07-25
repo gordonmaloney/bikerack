@@ -127,7 +127,7 @@ export const BikerackBlob = ({ name, bikers, id, createNew, setFade }) => {
               width: "100%",
               zIndex: 5,
               filter: "invert(1)",
-              marginTop: '35px'
+              marginTop: '50px'
             }}
           >
             <Animicon icon="PlusIcon" canvas autoplay forceLoop />{" "}
