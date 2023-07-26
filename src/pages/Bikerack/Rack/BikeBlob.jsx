@@ -5,7 +5,7 @@ import Animicon from "../../../components/Animicon";
 
 const IconDimensions = "25px";
 
-export const BikeBlob = ({ bike }) => {
+export const BikeBlob = ({ bike, setExpand }) => {
   const { name, proposed_by, stars, comments, vetoes } = bike;
 
   return (
@@ -24,8 +24,22 @@ export const BikeBlob = ({ bike }) => {
         }}
       >
         <div
+            id="invisible click area"
+            onClick={() => setExpand(bike)}
           style={{
-            pointerEvents: 'none',
+            zIndex: '10',
+            position: "absolute",
+            width: "400px",
+            marginLeft: '100px',
+            height: "80px",
+            backgroundColor: "",
+            borderRadius: '90%'
+          }}
+        />
+
+        <div
+          style={{
+            pointerEvents: "none",
             position: "absolute",
             width: "400px",
             height: "100px",
@@ -33,7 +47,7 @@ export const BikeBlob = ({ bike }) => {
             left: 0,
           }}
         >
-            <Blob colour={"black"} radius={95} squash={5} />
+          <Blob colour={"black"} radius={95} squash={5} />
         </div>
 
         <div>

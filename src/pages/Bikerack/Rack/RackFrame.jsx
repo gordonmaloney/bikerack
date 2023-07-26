@@ -21,9 +21,8 @@ export const RackFrame = () => {
           style={{
             zIndex: 2,
           }}
-          onClick={() => setExpand(bike)}
         >
-          <BikeBlob bike={bike} />
+          <BikeBlob bike={bike} setExpand={setExpand}/>
         </div>
       ))}
 

@@ -19,14 +19,27 @@ export const BikeExpand = ({ bike, setExpand }) => {
   return (
     <div>
       <div
-        style={{
-          height: "100vh",
-          width: "100vw",
-          position: "fixed",
-          left: 0,
-          top: 0,
-        }}
         onClick={() => setExpand("")}
+        style={{
+          width: "100vw",
+          height: "100vh",
+          zIndex: "1",
+          position: "fixed",
+          top: "0",
+        }}
+      />
+
+      <div
+        style={{
+          width: "100vw",
+          height: "312px",
+          borderRadius: "60% / 100px",
+          borderBottomLeftRadius: "0",
+          borderBottomRightRadius: "0",
+          zIndex: "10",
+          position: "absolute",
+          bottom: "0",
+        }}
       />
 
       <div
