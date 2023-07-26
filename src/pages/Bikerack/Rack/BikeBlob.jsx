@@ -5,7 +5,9 @@ import Animicon from "../../../components/Animicon";
 
 const IconDimensions = "25px";
 
-export const BikeBlob = ({ name, proposedBy, stars, comments, vetoes }) => {
+export const BikeBlob = ({ bike }) => {
+  const { name, proposed_by, stars, comments, vetoes } = bike;
+
   return (
     <div>
       <div
@@ -18,25 +20,30 @@ export const BikeBlob = ({ name, proposedBy, stars, comments, vetoes }) => {
           height: "110px",
           maxWidth: "300px",
           minWidth: "300px",
-          marginLeft: "20px"
+          marginLeft: "20px",
         }}
       >
         <div
           style={{
+            pointerEvents: 'none',
             position: "absolute",
             width: "400px",
             height: "100px",
-            transform: "translate(-35px, -150%)",
+            transform: "translate(0px, -150%)",
             left: 0,
           }}
         >
-          <Blob colour={"black"} radius={95} squash={5} />
+            <Blob colour={"black"} radius={95} squash={5} />
         </div>
 
         <div>
-          <Grid container alignItems={"center"} 
-          justifyItems={"space-around"}
-          spacing={2} style={{width: "330px"}}>
+          <Grid
+            container
+            alignItems={"center"}
+            justifyItems={"space-around"}
+            spacing={2}
+            style={{ width: "330px", marginLeft: "100px" }}
+          >
             <Grid item>
               <Avatar
                 style={{
@@ -46,11 +53,11 @@ export const BikeBlob = ({ name, proposedBy, stars, comments, vetoes }) => {
                   color: "black",
                   fontSize: "small",
                   fontFamily: "'Passion One', cursive",
-                  zIndex: 20,
+                  zIndex: "1 !important",
                   border: "1px solid black",
                 }}
               >
-                {proposedBy
+                {proposed_by
                   .toLowerCase()
                   .split(" ")
                   .map((word) => word.charAt(0))}
@@ -59,21 +66,15 @@ export const BikeBlob = ({ name, proposedBy, stars, comments, vetoes }) => {
 
             <Grid item>
               <h3
+                className="threeLineEllipsis"
                 style={{
                   color: "white",
                   position: "relative",
-                  zIndex: 20,
+                  zIndex: "1 !important",
                   textAlign: "left !important",
                   fontSize: "1.3em",
                   margin: "0",
                   width: "100px",
-
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  //display: 'block',
-                  wordWrap: 'break-word',
-                  lineHeight: '20px',
-                  maxHeight: '60px',
 
                   padding: "0 10px",
                   textShadow:
@@ -111,14 +112,13 @@ export const BikeBlob = ({ name, proposedBy, stars, comments, vetoes }) => {
                     style={{
                       color: "white",
                       position: "relative",
-                      zIndex: 20,
+                      zIndex: "1 !important",
                       fontSize: "1.3em",
                       margin: "0",
                       marginLeft: "4px",
                       marginTop: "-8px",
                       paddingRight: "5px",
                       paddingBottom: "2px",
-                
                     }}
                   >
                     {stars.length}
@@ -155,7 +155,7 @@ export const BikeBlob = ({ name, proposedBy, stars, comments, vetoes }) => {
                     style={{
                       color: "white",
                       position: "relative",
-                      zIndex: 20,
+                      zIndex: "1 !important",
                       fontSize: "1.3em",
                       margin: "0",
                       marginLeft: "4px",
@@ -198,7 +198,7 @@ export const BikeBlob = ({ name, proposedBy, stars, comments, vetoes }) => {
                     style={{
                       color: "white",
                       position: "relative",
-                      zIndex: 20,
+                      zIndex: "1 !important",
                       fontSize: "1.3em",
                       margin: "0",
                       marginLeft: "4px",

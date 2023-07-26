@@ -7,86 +7,17 @@ import anime from "animejs/lib/anime.es.js";
 import { Grid } from "@mui/material";
 import { RackBlob } from "./rackBlob";
 
-const Racks = [
-  {
-    rack: "shows",
-    bikes: [
-      "Stranger Things",
-      "The Mandalorian",
-      "Friends",
-      "Black Mirror",
-      "Brooklyn Nine-Nine",
-      "The Crown",
-      "Avatar: The Last Airbender",
-      "The Great British Bake Off",
-      "Money Heist",
-      "The Office (US)",
-    ],
-  },
-  {
-    rack: "Restaurants",
-    bikes: [
-      "The Witchery by the Castle",
-      "Timberyard",
-      "Dishoom Edinburgh",
-      "Ondine",
-    ],
-  },
-  {
-    rack: "recipes",
-    bikes: [
-      "Classic Spaghetti Carbonara",
-      "Thai Green Curry",
-      "Homemade Pizza with Various Toppings",
-      "Lemon Garlic Butter Shrimp",
-      "Chicken Tikka Masala",
-      "Vegetarian Stuffed Bell Peppers",
-      "Chocolate Fondue",
-    ],
-  },
-  {
-    rack: "Games",
-    bikes: [
-      "Super Smash Bros. Ultimate",
-      "Fortnite",
-      "Stardew Valley",
-      "Apex Legends",
-      "Borderlands 3",
-      "Mario Kart 8 Deluxe",
-    ],
-  },
-  {
-    rack: "Books",
-    bikes: [
-      "The Great Gatsby by F. Scott Fitzgerald",
-      "The Hunger Games by Suzanne Collins",
-      "1984 by George Orwell",
-      "To Kill a Mockingbird by Harper Lee",
-      "The Lord of the Rings by J.R.R. Tolkien",
-      "The Da Vinci Code by Dan Brown",
-      "The Alchemist by Paulo Coelho",
-      "Gone Girl by Gillian Flynn",
-      "The Catcher in the Rye by J.D. Salinger",
-    ],
-  },
-  {
-    rack: "Days out",
-    bikes: [
-      "Visit a local museum or art gallery",
-      "Go on a hiking trip in the countryside",
-      "Have a movie marathon with all-time favorite films",
-      "Attend a live concert or music event",
-      "Have a beach day with beach games and a BBQ",
-      "Go on a bike tour exploring the city",
-      "Plan a themed costume party",
-      "Visit an amusement park and ride roller coasters",
-    ],
-  },
-];
+import { DummyData } from "../../DummyData";
 
 export const BikerackFrame = () => {
+
+
   const navigate = useNavigate();
   const { brname } = useParams();
+
+  const Racks = DummyData.filter(br => br.name == brname)[0].racks
+
+console.log(Racks)
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -169,10 +100,11 @@ export const BikerackFrame = () => {
             //position: "absolute",
           }}
         >
-          {Racks.map((rack) => (
+      
+      {Racks.map((rack) => (
             <Grid item>
               <center>
-                <RackBlob name={rack.rack} bikes={rack.bikes} id={1} />
+                <RackBlob name={rack.name} bikes={rack.bikes.map(bike => bike.name)} id={1} />
               </center>
             </Grid>
           ))}

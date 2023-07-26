@@ -11,7 +11,13 @@ const ButtonPoints = [
   "M 0 0 C 183 1 358 0 552 0 C 687 0 799 3 799 0 C 800 268 800 321 800 600 C 591 596 501 599 417 600 C 292 595 179 599 0 600 C 4 473 4 443 0 365 C 6 256 -1 183 0 0 Z",
 ];
 
-export const BikerackBlob = ({ name, bikers, id, createNew, setFade }) => {
+export const BikerackBlob = ({
+  name,
+  bikers,
+  id,
+  createNew,
+  setFade,
+}) => {
   const navigate = useNavigate();
 
   const [play, setPlay] = useState(false);
@@ -51,7 +57,7 @@ export const BikerackBlob = ({ name, bikers, id, createNew, setFade }) => {
   return (
     <>
       <div
-        onClick={() => !createNew ? openBr(name) : newBr()}
+        onClick={() => (!createNew ? openBr(name) : newBr())}
         style={{
           marginTop: "-20px",
           zIndex: "10",
@@ -127,7 +133,7 @@ export const BikerackBlob = ({ name, bikers, id, createNew, setFade }) => {
               width: "100%",
               zIndex: 5,
               filter: "invert(1)",
-              marginTop: '50px'
+              marginTop: "50px",
             }}
           >
             <Animicon icon="PlusIcon" canvas autoplay forceLoop />{" "}

@@ -4,33 +4,8 @@ import { Grid } from "@mui/material";
 import anime from "animejs/lib/anime.es.js";
 import { useNavigate } from "react-router-dom";
 import { BikerackBlob } from "./BikerackBlob";
+import { DummyData } from "../../DummyData";
 
-const Racks = [
-  {
-    name: "drinking buddies",
-    bikers: ["Liam Johnson", "Sophia Anderson", "Noah Williams"],
-    id: 1,
-  },
-  {
-    name: "flatmates",
-    bikers: ["Ethan Thompson", "Ava Rodriguez", "Mason Lee"],
-    id: 2,
-  },
-  {
-    name: "the gang",
-    bikers: [
-      "Isabella Wright",
-      "Lucas Scott",
-      "Mia Phillips",
-      "Alexander Turner",
-      "Harper Ramirez",
-      "Benjamin Clark",
-      "Amelia Morris",
-      "Jameson Baker",
-    ],
-    id: 3,
-  },
-];
 
 const Points = [
   "M -1 0 C 216 0 216 0 216 0 C 479 0 479 0 479 0 C 563 0 563 0 563 0 C 795 0 795 0 795 0 L 800 600 L 800 600 L 0 600 L 0 0 ",
@@ -168,7 +143,7 @@ const LoggedIn = () => {
             paddingBottom: '-250px'
           }}
         >
-          {Racks.map((rack) => {
+          {DummyData.map((rack) => {
             return (
               <Grid item>
                 <center>
