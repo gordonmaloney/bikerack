@@ -24,16 +24,16 @@ export const BikeBlob = ({ bike, setExpand }) => {
         }}
       >
         <div
-            id="invisible click area"
-            onClick={() => setExpand(bike)}
+          id="invisible click area"
+          onClick={() => setExpand(bike)}
           style={{
-            zIndex: '10',
+            zIndex: 10,
+            //backgroundColor: 'rgba(100,0,100,0.5)',
             position: "absolute",
             width: "400px",
-            marginLeft: '100px',
+            marginLeft: "100px",
             height: "80px",
-            backgroundColor: "",
-            borderRadius: '90%'
+            borderRadius: "90%",
           }}
         />
 
@@ -56,7 +56,11 @@ export const BikeBlob = ({ bike, setExpand }) => {
             alignItems={"center"}
             justifyItems={"space-around"}
             spacing={2}
-            style={{ width: "330px", marginLeft: "100px" }}
+            style={{
+              width: "330px",
+              marginLeft: "100px",
+              zIndex: "1 !important",
+            }}
           >
             <Grid item>
               <Avatar
@@ -126,7 +130,7 @@ export const BikeBlob = ({ bike, setExpand }) => {
                     style={{
                       color: "white",
                       position: "relative",
-                      zIndex: "1 !important",
+                      zIndex: 1,
                       fontSize: "1.3em",
                       margin: "0",
                       marginLeft: "4px",

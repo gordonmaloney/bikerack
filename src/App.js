@@ -5,6 +5,7 @@ import { BikerackFrame } from "./pages/Bikerack/BikerackFrame";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Masking } from "./Masking";
 import { RackFrame } from "./pages/Bikerack/Rack/RackFrame";
+import { BikeExpand } from "./pages/Bikerack/Rack/BikeExpand";
 
 const router = createBrowserRouter([
   {
