@@ -2,7 +2,6 @@ import React from "react";
 import { Blob } from "../../../components/Blob";
 import { Avatar, Grid, Icon } from "@mui/material";
 import Animicon from "../../../components/Animicon";
-import { FlatBlob } from "../../../components/FlatBlob";
 
 const IconDimensions = "25px";
 
@@ -11,18 +10,17 @@ export const BikeBlob = ({ bike, setExpand }) => {
 
   return (
     <div
-      style={{
-   
-      }}
+    
     >
       <div
         style={{
-          display: "flex",
+          display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
           color: "white",
           height: "110px",
-          width: "300px",
+          maxWidth: "300px",
+          minWidth: "300px",
           marginLeft: "20px",
         }}
       >
@@ -30,10 +28,10 @@ export const BikeBlob = ({ bike, setExpand }) => {
           id="invisible click area"
           onClick={() => setExpand(bike)}
           style={{
-            zIndex: 20,
+            zIndex: 10,
             //backgroundColor: 'rgba(100,0,100,0.5)',
             position: "absolute",
-            width: "300px",
+            width: "400px",
             marginLeft: "100px",
             height: "80px",
             borderRadius: "90%",
@@ -45,12 +43,12 @@ export const BikeBlob = ({ bike, setExpand }) => {
             pointerEvents: "none",
             position: "absolute",
             width: "400px",
-            //height: "100px",
-            //transform: "translate(0px, -150%)",
+            height: "100px",
+            transform: "translate(0px, -150%)",
             left: 0,
           }}
         >
-          <FlatBlob colour={"black"} radius={95} squash={1} />
+          <Blob colour={"black"} radius={95} squash={5} />
         </div>
 
         <div>

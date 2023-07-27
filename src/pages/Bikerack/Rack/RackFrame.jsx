@@ -14,25 +14,20 @@ export const RackFrame = () => {
 
   const [expand, setExpand] = useState("");
 
-  console.log(expand);
-
   return (
-    <>
-      <div style={{ display: "fixed", bottom: 0, zIndex: 5 }}>
+    <div style={{ position: "relative", overflowX: "scroll" }}>
+      <div style={{ position: "absolute" }}>
         {expand && <BikeExpand bike={expand} setExpand={setExpand} />}
       </div>
 
-      <div style={{ display: "fixed", bottom: 0, zIndex: 2 }}>
-        {Bikes.map((bike) => (
-          <div
-            style={{
-              zIndex: 2,
-            }}
-          >
-            <BikeBlob bike={bike} setExpand={setExpand} />
-          </div>
-        ))}
+       {Bikes.map((bike) => (
+           <div style={{ position: "relative", overflow: "hidden" }}>
+        <BikeBlob bike={bike} setExpand={setExpand} />
       </div>
-    </>
+        ))} 
+        
+
+        {expand && <div style={{height: "300px"}}/>}
+    </div>
   );
 };

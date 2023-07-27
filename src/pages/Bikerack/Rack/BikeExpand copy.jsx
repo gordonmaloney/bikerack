@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Blob } from "../../../components/Blob";
 import anime from "animejs";
-import { Avatar, Grid } from "@mui/material";
-import Animicon from "../../../components/Animicon";
 
 const Points = [
   "M 0 1 L 0 1 C 0.16375 1 0.09375 1 0.31 1 C 0.44375 1 0.43875 1 0.48375 1 C 0.54375 1 0.515 1 0.6525 1 C 0.7375 1 0.7575 1 0.8125 1 C 0.8775 1 0.9025 1 1 1 L 1 1 Z",
@@ -146,106 +144,6 @@ export const BikeExpand = ({ bike, setExpand }) => {
           >
             <center>
               <h2 style={{ zIndex: 20 }}>{bike.name}</h2>
-
-              <Grid
-                container
-                spacing={2}
-                alignContent={"center"}
-                justifyContent={"center"}
-              >
-                <Grid item>
-                  <Avatar
-                    style={{
-                      width: 30,
-                      height: 30,
-                      backgroundColor: "white",
-                      color: "black",
-                      fontSize: "large",
-                      fontFamily: "'Passion One', cursive",
-                      zIndex: "1 !important",
-                      border: "1px solid black",
-                      display: "inline-flex",
-                    }}
-                  >
-                    {bike.proposed_by
-                      .toLowerCase()
-                      .split(" ")
-                      .map((word) => word.charAt(0))}
-                  </Avatar>
-                </Grid>
-
-                <Grid item>
-                  {bike.stars.map((star) => (
-                    <div
-                      id="stars"
-                      style={{
-                        display: "inline-block",
-                        width: 25,
-                        height: 25,
-                        color: "white",
-                        margin: "0px 0 0 0px",
-                      }}
-                    >
-                      <Animicon icon="StarYellow" forceLoop play />
-                    </div>
-                  ))}
-                </Grid>
-
-                <Grid item>
-                  {bike.vetoes.map((star) => (
-                    <div
-                      id="vetoes"
-                      style={{
-                        display: "inline-block",
-                        width: 25,
-                        height: 25,
-                        color: "white",
-                        margin: "0px 0 0 0px",
-                      }}
-                    >
-                      <Animicon icon="VetoRed" forceLoop play />
-                    </div>
-                  ))}
-                </Grid>
-              </Grid>
-
-              <hr style={{ width: "90%", border: "1px solid white" }} />
-
-              <Grid
-                container
-                spacing={1}
-                style={{ width: "90%", margin: "0 auto"}}
-              >
-                {bike.comments.map((comment) => (
-                  <>
-                    <Grid xs={10} item style={{ textAlign: "left" }}>
-                      {comment.text}
-                      <hr style={{border: '0.5px solid white'}}/>{" "}
-
-                    </Grid>
-                    <Grid xs={2} item style={{}}>
-                      <Avatar
-                        style={{
-                          width: 30,
-                          height: 30,
-                          backgroundColor: "white",
-                          color: "black",
-                          fontSize: "large",
-                          fontFamily: "'Passion One', cursive",
-                          zIndex: "1 !important",
-                          border: "1px solid black",
-                          display: "inline-flex",
-                        }}
-                      >
-                        {comment.posted_by
-                          .toLowerCase()
-                          .split(" ")
-                          .map((word) => word.charAt(0))}
-                      </Avatar>
-                    </Grid>
-                  </>
-                ))}
-              </Grid>
             </center>
           </div>
         </div>
