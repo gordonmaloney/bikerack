@@ -3,13 +3,11 @@ import { Blob } from "../../../components/Blob";
 import anime from "animejs";
 
 const Points = [
-  "M 0 800 L 0 600 C 0 600 50 600 100 600 C 150 600 150 600 200 600 C 250 600 300 600 350 600 C 400 600 400 600 450 600 C 500 600 550 600 600 600 C 700 600 800 600 800 600 L 800 600 Z",
-  "M 0 800 L 0 350 C 101 328 90 561 140 425 C 172 329 224 576 284 552 C 350 522 358 345 400 350 C 472 357 384 499 500 500 C 750 500 551 299 600 250 C 679 177 680 416 800 450 L 800 600 Z",
+  "M 0 1 L 0 1 C 0.16375 1 0.09375 1 0.31 1 C 0.44375 1 0.43875 1 0.48375 1 C 0.54375 1 0.515 1 0.6525 1 C 0.7375 1 0.7575 1 0.8125 1 C 0.8775 1 0.9025 1 1 1 L 1 1 Z",
 
-  //"M 0 800 L 0 350 C 23 339 64 320 84 312 C 130 299 174 288 221 279 C 260 269 297 264 333 261 C 394 258 417 256 470 260 C 529 276 561 275 615 291 C 779 341 761 376 800 450 L 800 600 Z",
+  "M 0 1 L 0 0.6666667 C 0.16375 0.8666667 0.09375 0.5733333 0.31 0.835 C 0.44375 0.9883333 0.43875 0.535 0.48375 0.43 C 0.54375 0.3633333 0.515 0.66 0.6525 0.78 C 0.7375 0.85 0.7575 0.6416667 0.8125 0.6666667 C 0.8775 0.7016667 0.9025 0.9133333 1 0.75 L 1 1 Z",
+  "M 0 1 L 0 0 C 0.16375 0 0.09375 0 0.31 0 C 0.44375 0 0.43875 0 0.48375 0 C 0.54375 0 0.515 0 0.6525 0 C 0.7375 0 0.7575 0 0.8125 0 C 0.8775 0 0.9025 0 1 0 L 1 1 Z",
 
-
-  "M 0 800 L 0 0 C 23 0 64 0 84 0 C 130 0 174 0 221 0 C 260 0 297 0 333 0 C 394 0 417 0 470 0 C 529 0 561 0 615 0 C 779 341 761 376 800 450 L 800 600 Z",
 
 ];
 
@@ -48,19 +46,19 @@ export const BikeExpand = ({ bike, setExpand }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setFinished(true)
+      setFinished(true);
     }, 1);
   }, []);
 
-  console.log(finished)
-
   return (
-    <div style={{zIndex: 11}}>
+    <div
+      style={{ zIndex: 11, position: "fixed", width: "100vw", height: "100vh" }}
+    >
       <svg
         id="morph"
-        height="100vh"
-        width="100vw"
-        viewBox="0 0 800 600"
+        height="100%"
+        width="100%"
+        viewBox="0 0 800 800"
         style={{
           position: "fixed",
           minHeight: "100vh",
@@ -68,17 +66,8 @@ export const BikeExpand = ({ bike, setExpand }) => {
         }}
       >
         <defs>
-          <clipPath id="maskRect1">
-            <path
-              className="morph"
-              d={Points[0]}
-              style={{
-                bottom: '200px',
-                position: "fixed",
-                paddingTop: "100px",
-                transform: `(${windowWidth / 800} 1})`,
-              }}
-            />
+          <clipPath id="maskRect1" clipPathUnits="objectBoundingBox">
+            <path className="morph" d={Points[0]} />
           </clipPath>
         </defs>
       </svg>
@@ -88,8 +77,11 @@ export const BikeExpand = ({ bike, setExpand }) => {
           position: "fixed",
           zIndex: 10,
           WebkitClipPath: "url(#maskRect1)",
-          height: '100vh',
-          backgroundColor: 'red'
+
+          clipPath: "url(#maskRect1)",
+          height: "100vh",
+          width: "100vw",
+         // backgroundColor: "red",
         }}
       >
         <div
@@ -108,7 +100,7 @@ export const BikeExpand = ({ bike, setExpand }) => {
 
         <div
           style={{
-           // backgroundColor: "rgba(0,0,200,0.5)",
+            // backgroundColor: "rgba(0,0,200,0.5)",
             width: "100vw",
             height: "312px",
             borderRadius: "60% / 100px",
@@ -119,7 +111,6 @@ export const BikeExpand = ({ bike, setExpand }) => {
             bottom: 0,
           }}
         />
-
         <div
           style={{
             zIndex: 10,
@@ -143,7 +134,6 @@ export const BikeExpand = ({ bike, setExpand }) => {
             strokeColour="white"
           />
         </div>
-
         <div
           style={{
             color: "white",
@@ -162,140 +152,3 @@ export const BikeExpand = ({ bike, setExpand }) => {
     </div>
   );
 };
-
-//safe
-
-{
-  /*
-import React, { useEffect, useState } from "react";
-import { Blob } from "../../../components/Blob";
-import anime from "animejs";
-
-const Points = [
-  "M 0 600 L 0 350 C 101 328 90 561 140 425 C 172 329 224 576 284 552 C 350 522 358 345 400 350 C 472 357 384 499 500 500 C 750 500 551 299 600 250 C 679 177 680 416 800 450 L 800 600 Z",
-  "M 0 600 L 0 350 C 101 328 90 561 140 425 C 172 329 224 576 284 552 C 350 522 358 345 400 350 C 472 357 384 499 500 500 C 750 500 551 299 600 250 C 679 177 680 416 800 450 L 800 600 Z",
-  "M 0 600 L 0 350 C 101 328 90 561 140 425 C 172 329 224 576 284 552 C 350 522 358 345 400 350 C 472 357 384 499 500 500 C 750 500 551 299 600 250 C 679 177 680 416 800 450 L 800 600 Z",
-];
-
-export const BikeExpand = ({ bike, setExpand }) => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  return (
-    <div style={{ position: "fixed" }}>
-      <svg
-        id="morph"
-        height="100vh"
-        width="100vw"
-        viewBox="0 0 300 600"
-        style={{
-          position: "fixed",
-          minHeight: "100vh",
-          display: windowWidth > 700 && "none",
-          zIndex: 5,
-          transform: "scale(1,1)",
-        }}
-      >
-        <defs>
-          <clipPath id="maskRect1" style={{ transform: "scale(1,1.2)" }}>
-            <path class="morph" d={Points[0]} />
-          </clipPath>
-        </defs>
-      </svg>
-
-      <div
-        id="menu"
-        style={{
-          zIndex: 4,
-          position: "fixed",
-          width: "100vw",
-          backgroundColor: "red",
-          height: "100vh",
-          WebkitClipPath: "url(#maskRect1)",
-        }}
-      >
-        test
-      </div>
-
-      <div style={{ WebkitClipPath: "url(#maskRect1)" }}>
-        <div
-          onClick={() => setExpand("")}
-          style={{
-            width: "100vw",
-            height: "100vh",
-            zIndex: "1",
-            position: "fixed",
-            top: "0",
-          }}
-        />
-
-        <div
-          style={{
-            backgroundColor: "red",
-            width: "100vw",
-            height: "312px",
-            borderRadius: "60% / 100px",
-            borderBottomLeftRadius: "0",
-            borderBottomRightRadius: "0",
-            zIndex: "10",
-            position: "fixed",
-            bottom: "0",
-          }}
-        />
-
-        <div
-          style={{
-            zIndex: 1,
-            width: "200vw",
-            position: "fixed",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            bottom: 0,
-            left: 0,
-            transform: `translate(-50vw,0) scale(1, ${
-              1 / (windowWidth / 350)
-            })`,
-          }}
-        >
-          <Blob
-            radius={90}
-            squash={1}
-            colour="black"
-            stroke
-            strokeColour="white"
-          />
-        </div>
-
-        <div
-          style={{
-            color: "white",
-            height: "300px",
-            position: "fixed",
-            zIndex: "5",
-            bottom: 0,
-            width: "100vw",
-          }}
-        >
-          <center>
-            <h2 style={{ zIndex: 5 }}>{bike.name}</h2>
-          </center>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-*/
-}
